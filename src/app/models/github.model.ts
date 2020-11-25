@@ -13,3 +13,12 @@ export interface GHRepo{
     updated_at: string;
     watchers_count: number;
 }
+
+export interface GHUser{
+    login: string;
+    avatar_url: string;
+    html_url: string;
+    type: string;
+    site_admin: boolean;
+    url: string;
+}

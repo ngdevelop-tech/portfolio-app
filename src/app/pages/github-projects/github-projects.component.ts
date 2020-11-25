@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { GHRepo } from 'src/app/models/github.model';
 import { GithubService } from 'src/app/services/github.service';
 
 @Component({
@@ -8,9 +10,12 @@ import { GithubService } from 'src/app/services/github.service';
 })
 export class GithubProjectsComponent implements OnInit {
 
-  repos$ = this.githubService.getRepos('ngdevelop-tech');
+  userName: string = 'ngdevelop-tech';
 
-  constructor(private githubService: GithubService) { }
+  repos$ = this.githubService.getRepos(this.userName);
+
+  constructor(private githubService: GithubService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }

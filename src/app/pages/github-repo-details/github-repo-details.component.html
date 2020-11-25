@@ -1,0 +1,21 @@
+<div class="row" *ngIf="repo$ | async as repo">
+    <div class="col-md-8">
+        <h1>{{repo.name}}</h1>
+        <hr>
+        <pre class="bg-light p-4">{{readmeContent$ | async}}</pre>
+    </div>
+    <div class="col-md-4">
+        <h1>Star By</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-12" *ngFor="let user of stargazers$| async">
+                <a class="row my-2 border p-2 shadow-sm" [href]="user.html_url" target="_blank">
+                  <img class="col-md-2 img-fluid rounded-circle" [src]="user.avatar_url" alt="">
+                  <div class="col-md-10">
+                    <h5>{{user.login}}</h5>
+                  </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

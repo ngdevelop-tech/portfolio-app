@@ -12,8 +12,8 @@
                     <span class="badge badge-light"><i class="fa fa-calendar" aria-hidden="true"></i>
                         {{repo.updated_at | date}}</span>
                 </div>
-                <div class="badge badge-light" *ngIf="repo.homepage"> <i class="fa fa-globe"
-                        aria-hidden="true"></i>{{repo.homepage}}</div>
+                <a class="badge badge-light" *ngIf="repo.homepage" [href]="repo.homepage" target="_blank"> <i class="fa fa-globe"
+                        aria-hidden="true"></i> {{repo.homepage}}</a>
 
                 <div class="d-flex justify-content-between ">
                     <span>
@@ -28,6 +28,9 @@
                         <i class="fa fa-eye" aria-hidden="true"></i>
                         {{repo.watchers_count}}
                     </span>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" [routerLink]="['/github-repos', repo.full_name]">Show Details</button>
                 </div>
             </div>
         </div>
