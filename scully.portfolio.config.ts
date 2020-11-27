@@ -6,6 +6,12 @@ export const config: ScullyConfig = {
   projectName: "portfolio",
   outDir: './dist/static',
   routes: {
+    '/blog/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: "./blog"
+      }
+    },
     '/github-repos/:repo': {
       type: 'json',
       repo: {

@@ -1,0 +1,16 @@
+<h1 class="text-center">Blogs</h1>
+<hr>
+<div class="row">
+    <div class="col-md-12 p-2" *ngFor="let blog of blogs$|async">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title">{{blog.title}}</h4>
+            <p class="card-title">{{blog.description}}</p>
+            <div>
+                <span class="badge" [ngClass]="{'badge-info': blog.published, 'badge-dark': !blog.published}" >{{blog.published ? 'PUBLISHED' : 'DRAFT'}}</span>
+            </div>
+            <a class="btn btn-primary" [routerLink]="[blog.route]" >Read More</a>
+        </div>
+        </div>
+    </div>
+</div>
