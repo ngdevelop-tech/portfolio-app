@@ -1,5 +1,7 @@
-import { ScullyConfig } from '@scullyio/scully';
+import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 import { AppConfig } from './app.config';
+
+setPluginConfig('md', { enableSyntaxHighlighting: true });
 
 export const config: ScullyConfig = {
   projectRoot: "./src",

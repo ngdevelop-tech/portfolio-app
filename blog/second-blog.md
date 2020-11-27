@@ -22,3 +22,25 @@ and many more things. It provides reports of each above feature, which helps to 
 
 > Google Analytics data also helps to do SEO (Search Engine Optimization) of web and mobile apps.
 
+## Get Google Analytics Tracking Code for Application
+
+1. Sign in to Google Analytics 
+2. Open Admin Panel and click on + Create Property.
+3. A property represents your website or app, and is the collection point in Analytics for the data from your site or app. You can create multiple properties with one google analytics account.
+
+4. Select Web or App and fill the required details – Website name, website URL, Industry Category and TimeZone
+Now click on the create button to create a property.
+
+Once your property is created it will generate global site tag(gtag.js) snippet for your application.
+
+```html
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=TRACKING_CODE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config',[TRACKING_CODE]);
+</script>
+```
