@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TransferStateService } from '@scullyio/ng-lib';
+import { Observable } from 'rxjs';
 import { GHRepo } from 'src/app/models/github.model';
 import { GithubService } from 'src/app/services/github.service';
 
@@ -12,10 +14,15 @@ export class GithubProjectsComponent implements OnInit {
 
   userName: string = 'ngdevelop-tech';
 
-  repos$ = this.githubService.getRepos(this.userName);
+  repos$: Observable<GHRepo[]>;
 
-  constructor(private githubService: GithubService,
-              private router: Router) { }
+  constructor(private transferStateService: TransferStateService,
+    private githubService: GithubService,
+    private router: Router) {
+
+    this.repos$ = this.transferStateService.useScullyTransferState<GHRepo[]>('ghRepos', this.githubService.getRepos(this.userName));
+  
+  }
 
   ngOnInit(): void {
   }
