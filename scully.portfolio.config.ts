@@ -1,7 +1,16 @@
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
+import { CopyToClipboard, CopyToClipboardPluginConfig } from '@scullyio/scully-plugin-copy-to-clipboard';
 import { AppConfig } from './app.config';
 
 setPluginConfig('md', { enableSyntaxHighlighting: true });
+
+setPluginConfig<CopyToClipboardPluginConfig>(CopyToClipboard, {
+  copyBtnInitialText: '📄',
+  copyBtnOnClickText: '✅',
+  customBtnClass: 'customClass',
+  clipboardJSPath:
+    'https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js',
+});
 
 export const config: ScullyConfig = {
   projectRoot: "./src",
@@ -12,7 +21,8 @@ export const config: ScullyConfig = {
       type: 'contentFolder',
       slug: {
         folder: "./blog"
-      }
+      },
+      postRenderers: [CopyToClipboard]
     },
     '/github-repos/:repo': {
       type: 'json',
@@ -22,7 +32,7 @@ export const config: ScullyConfig = {
         headers: {
           'User-Agent': 'ngdevelop-tech-app',
           'Authorization': `token ${AppConfig.GITHUB_TOKEN}`
-        }      
+        }
       }
     }
   }
