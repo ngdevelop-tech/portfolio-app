@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GithubInterceptor } from './services/github.interceptor';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { GithubInterceptor } from './services/github.interceptor';
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ScullyLibModule
   ],
   providers: [
     {
