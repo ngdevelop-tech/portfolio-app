@@ -1,7 +1,8 @@
 ---
 title: 'Getting Started with Scully'
 description: 'In this blog we will see how to use scully with angular application'
-published: true
+published: true,
+author: Ankit Prajapati
 ---
 
 # Getting Started with Scully

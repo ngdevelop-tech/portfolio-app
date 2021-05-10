@@ -1,6 +1,6 @@
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 import { copyToClipboard, CopyToClipboardPluginConfig } from '@scullyio/scully-plugin-copy-to-clipboard';
-
+import { footerPlugin }  from './scully/plugins/plugin';
 setPluginConfig('md', { enableSyntaxHighlighting : true});
 
 setPluginConfig<CopyToClipboardPluginConfig>(copyToClipboard, {
@@ -17,7 +17,7 @@ export const config: ScullyConfig = {
   routes: {
     '/blog/:slug': {
       type: 'contentFolder',
-      postRenderers: [ copyToClipboard ],
+      postRenderers: [ copyToClipboard, footerPlugin ],
       slug: {
         folder: "./blog"
       }
